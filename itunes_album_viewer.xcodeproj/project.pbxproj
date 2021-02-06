@@ -17,6 +17,8 @@
 		72925D7525CED732008DD2DA /* SearchHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72925D7425CED732008DD2DA /* SearchHistoryViewController.swift */; };
 		72925D7725CED753008DD2DA /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72925D7625CED753008DD2DA /* SearchViewController.swift */; };
 		72925D7925CED776008DD2DA /* AlbumFullInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72925D7825CED775008DD2DA /* AlbumFullInfoViewController.swift */; };
+		72925D7C25CED8DF008DD2DA /* ItunesAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72925D7B25CED8DF008DD2DA /* ItunesAPIManager.swift */; };
+		72925D7D25CED8DF008DD2DA /* ItunesAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72925D7B25CED8DF008DD2DA /* ItunesAPIManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,7 @@
 		72925D7425CED732008DD2DA /* SearchHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryViewController.swift; sourceTree = "<group>"; };
 		72925D7625CED753008DD2DA /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		72925D7825CED775008DD2DA /* AlbumFullInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumFullInfoViewController.swift; sourceTree = "<group>"; };
+		72925D7B25CED8DF008DD2DA /* ItunesAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItunesAPIManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +106,7 @@
 		72925D4125CB15BE008DD2DA /* itunes_album_viewer */ = {
 			isa = PBXGroup;
 			children = (
+				72925D7A25CED8A5008DD2DA /* Managers */,
 				72925D4225CB15BE008DD2DA /* AppDelegate.swift */,
 				72925D4425CB15BE008DD2DA /* SceneDelegate.swift */,
 				72925D4A25CB15BE008DD2DA /* Main.storyboard */,
@@ -132,6 +136,14 @@
 				72925D6825CB15C0008DD2DA /* Info.plist */,
 			);
 			path = itunes_album_viewerUITests;
+			sourceTree = "<group>";
+		};
+		72925D7A25CED8A5008DD2DA /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				72925D7B25CED8DF008DD2DA /* ItunesAPIManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -269,6 +281,7 @@
 				72925D7525CED732008DD2DA /* SearchHistoryViewController.swift in Sources */,
 				72925D7925CED776008DD2DA /* AlbumFullInfoViewController.swift in Sources */,
 				72925D7725CED753008DD2DA /* SearchViewController.swift in Sources */,
+				72925D7C25CED8DF008DD2DA /* ItunesAPIManager.swift in Sources */,
 				72925D4525CB15BE008DD2DA /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -277,6 +290,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72925D7D25CED8DF008DD2DA /* ItunesAPIManager.swift in Sources */,
 				72925D5C25CB15C0008DD2DA /* itunes_album_viewerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
