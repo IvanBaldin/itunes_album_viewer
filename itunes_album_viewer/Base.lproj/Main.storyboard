@@ -25,10 +25,10 @@
             </objects>
             <point key="canvasLocation" x="-75" y="0.0"/>
         </scene>
-        <!--View Controller-->
+        <!--Search View Controller-->
         <scene sceneID="MTI-bK-t8O">
             <objects>
-                <viewController id="p8c-XO-wx6" sceneMemberID="viewController">
+                <viewController id="p8c-XO-wx6" customClass="SearchViewController" customModule="itunes_album_viewer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rJ2-sG-MQE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -44,10 +44,10 @@
             </objects>
             <point key="canvasLocation" x="2597" y="-735"/>
         </scene>
-        <!--View Controller-->
+        <!--Album Full Info View Controller-->
         <scene sceneID="Cl6-AQ-X1M">
             <objects>
-                <viewController id="al0-4f-CeG" sceneMemberID="viewController">
+                <viewController id="al0-4f-CeG" customClass="AlbumFullInfoViewController" customModule="itunes_album_viewer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZnD-p9-Ds7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -60,10 +60,10 @@
             </objects>
             <point key="canvasLocation" x="3610" y="-735"/>
         </scene>
-        <!--View Controller-->
+        <!--Search History View Controller-->
         <scene sceneID="PCp-hR-y1b">
             <objects>
-                <viewController id="Io3-J7-dUf" sceneMemberID="viewController">
+                <viewController id="Io3-J7-dUf" customClass="SearchHistoryViewController" customModule="itunes_album_viewer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="92F-EW-VPU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
