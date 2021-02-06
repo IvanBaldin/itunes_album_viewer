@@ -22,7 +22,11 @@ class ItunesAPIManager {
             onFailure()
         }) { data in
             do {
-                let result = try JSONDecoder().decode(AlbumSearchResponse.self, from: data)
+                let response = try JSONDecoder().decode(AlbumSearchResponse.self, from: data)
+                
+                let albums = response.results.sorted()
+                let result = AlbumSearchResponse(resultCount: response.resultCount, results: albums)
+                
                 completion(result)
             }
             catch {
@@ -120,6 +124,8 @@ class ItunesAPIManager {
     
 }
 
+
+//struct with all fields from song and album json objects
 fileprivate struct ItunesEntity: Codable {
     let wrapperType: String
     let collectionType: String?
@@ -157,6 +163,8 @@ fileprivate struct ItunesEntity: Codable {
     let isStreamable : Bool?
 }
 
+
+//song info
 struct SongEntity: Codable {
     
     fileprivate init?(from: ItunesEntity) {
@@ -275,14 +283,27 @@ struct AlbumEntity: Codable {
     let releaseDate : String//"2010-09-24T07:00:00Z",
     let primaryGenreName : String
 }
+
+extension AlbumEntity : Comparable, Equatable {
+    static func < (lhs: AlbumEntity, rhs: AlbumEntity) -> Bool {
+        return lhs.collectionName.lowercased() < rhs.collectionName.lowercased()
+    }
+}
+
+//root struct for albums search
 struct AlbumSearchResponse: Codable {
     let resultCount: Int
     let results: [AlbumEntity]
 }
+
+
+//root struct for songs in album
 fileprivate struct AlbumDetailesResponse: Codable {
     let resultsCount: Int
     let results: [ItunesEntity]
 }
+
+//inner struct for convenience
 struct AlbumDetailes {
     let albumInfo: AlbumEntity
     let songs: [SongEntity]
