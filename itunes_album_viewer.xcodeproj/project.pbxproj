@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -22,6 +22,8 @@
 		72925D7925CED776008DD2DA /* AlbumFullInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72925D7825CED775008DD2DA /* AlbumFullInfoViewController.swift */; };
 		72925D7C25CED8DF008DD2DA /* ItunesAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72925D7B25CED8DF008DD2DA /* ItunesAPIManager.swift */; };
 		72925D7D25CED8DF008DD2DA /* ItunesAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72925D7B25CED8DF008DD2DA /* ItunesAPIManager.swift */; };
+		72925D7F25CF9B9D008DD2DA /* SearchHistoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72925D7E25CF9B9D008DD2DA /* SearchHistoryManager.swift */; };
+		72925D8025CF9B9D008DD2DA /* SearchHistoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72925D7E25CF9B9D008DD2DA /* SearchHistoryManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,7 @@
 		72925D7625CED753008DD2DA /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		72925D7825CED775008DD2DA /* AlbumFullInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumFullInfoViewController.swift; sourceTree = "<group>"; };
 		72925D7B25CED8DF008DD2DA /* ItunesAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItunesAPIManager.swift; sourceTree = "<group>"; };
+		72925D7E25CF9B9D008DD2DA /* SearchHistoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryManager.swift; sourceTree = "<group>"; };
 		7B2FE28C2E52F819EC40FA73 /* Pods_itunes_album_viewer_itunes_album_viewerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_itunes_album_viewer_itunes_album_viewerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5FCDEBB815499376BA35F97 /* Pods-itunes_album_viewer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-itunes_album_viewer.debug.xcconfig"; path = "Target Support Files/Pods-itunes_album_viewer/Pods-itunes_album_viewer.debug.xcconfig"; sourceTree = "<group>"; };
 		C3F84D41DD54C816BDFAEFCE /* Pods-itunes_album_viewerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-itunes_album_viewerTests.debug.xcconfig"; path = "Target Support Files/Pods-itunes_album_viewerTests/Pods-itunes_album_viewerTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -169,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				72925D7B25CED8DF008DD2DA /* ItunesAPIManager.swift */,
+				72925D7E25CF9B9D008DD2DA /* SearchHistoryManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -183,7 +187,6 @@
 				C3F84D41DD54C816BDFAEFCE /* Pods-itunes_album_viewerTests.debug.xcconfig */,
 				5651391259BC3789677AA0D0 /* Pods-itunes_album_viewerTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -431,6 +434,7 @@
 				72925D7925CED776008DD2DA /* AlbumFullInfoViewController.swift in Sources */,
 				72925D7725CED753008DD2DA /* SearchViewController.swift in Sources */,
 				72925D7C25CED8DF008DD2DA /* ItunesAPIManager.swift in Sources */,
+				72925D7F25CF9B9D008DD2DA /* SearchHistoryManager.swift in Sources */,
 				72925D4525CB15BE008DD2DA /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -440,6 +444,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				72925D7D25CED8DF008DD2DA /* ItunesAPIManager.swift in Sources */,
+				72925D8025CF9B9D008DD2DA /* SearchHistoryManager.swift in Sources */,
 				72925D5C25CB15C0008DD2DA /* itunes_album_viewerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
