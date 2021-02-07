@@ -12,11 +12,14 @@ class ItunesAPIManager {
     public static let sharedInstance = ItunesAPIManager()
     private let session = URLSession.shared
     
+    private init() {
+        
+    }
     
     func getAlbums(withRequest: String, onFailure: @escaping () -> Void, completion : @escaping (AlbumSearchResponse) -> Void) {
         let stringURL = "https://itunes.apple.com/search?term=\(generateURLEncodedSearchString(withRequest))&media=music&entity=album&attribute=albumTerm&explicit=Yes"
         
-        guard let url = URL(string: stringURL) else {onFailure();return} //todo: add wrong request response
+        guard let url = URL(string: stringURL) else {onFailure();return}
         
         dataTask(url: url, onFailure: {
             onFailure()
@@ -74,7 +77,7 @@ class ItunesAPIManager {
     }
     
     // "word1 word2, word3:" -> "word1+word2+word3"
-    internal func generateURLEncodedSearchString(_ s: String) -> String {
+    private func generateURLEncodedSearchString(_ s: String) -> String {
         
         let separatingCharecters: CharacterSet = CharacterSet.punctuationCharacters.union(.whitespacesAndNewlines)
         
