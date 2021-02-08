@@ -22,14 +22,6 @@ class itunes_album_viewerTests: XCTestCase {
         _ = SearchHistoryManager.sharedInstance.clearHistoryTable()
     }
     
-    func testAlbumSerchStringConversion() throws {
-        let testInput = ")word1 word2,word3.word4/word5;word6:word7*word8[\nword9{}[]()_"
-        let expectedOutput = "word1+word2+word3+word4+word5+word6+word7+word8+word9"
-        
-        let receivedOutput = ItunesAPIManager.sharedInstance.generateURLEncodedSearchString(testInput)
-        
-        XCTAssertEqual(expectedOutput, receivedOutput)
-    }
     
     func testAlbumSearchAPICall() throws {
         ItunesAPIManager.sharedInstance.getAlbums(withRequest: "primo victoria", onFailure: {
