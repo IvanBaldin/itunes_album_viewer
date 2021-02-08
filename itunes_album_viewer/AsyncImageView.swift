@@ -9,7 +9,12 @@
 import UIKit
 
 class AsyncImageView: UIImageView {
+    /// simple cache solution
+    /// can cause memory leak
+    /// need to be replaced with something more complex in future
+    /// now (feb 2021) it not so critical, but it may become in future
     static var imagesCacheDictionary: [NSString:UIImage] = [:] //todo: add clear of old images
+    
     private var currentURL: NSString?
     var delegate : AsyncImageViewDelegate?
     
