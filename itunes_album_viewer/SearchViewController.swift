@@ -14,7 +14,11 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UICollec
     @IBOutlet weak var albumsView: UICollectionView!
     
     var albums = AlbumSearchResponse(resultCount: 0, results: [])
-
+    
+    var albumToShow: AlbumEntity?
+    
+    var requestNeedToBeShown: SearchRequest?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.delegate = self
@@ -30,9 +34,16 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UICollec
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        if let request = self.requestNeedToBeShown {
+            self.requestNeedToBeShown = nil
+            self.searchBar.text = request.request
+            self.searchAlbums(with: request.request)
+        }
+    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return albums.resultCount
+        return albums.results.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -44,6 +55,12 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UICollec
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let model = (collectionView.cellForItem(at: indexPath) as? AlbumCollectionCell)?.model {
+            albumToShow = model
+            performSegue(withIdentifier: "show_album_detailes", sender: self)
+        }
+    }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if let text = searchBar.text {
@@ -66,15 +83,22 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UICollec
         albumsView.reloadData()
     }
     
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if
+            let destination = segue.destination as? AlbumFullInfoViewController,
+            segue.identifier == "show_album_detailes"
+        {
+            destination.albumID = self.albumToShow?.collectionId
+        }
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
-    */
+    
 
 }
 class AlbumCollectionCell: UICollectionViewCell {
@@ -83,7 +107,7 @@ class AlbumCollectionCell: UICollectionViewCell {
     @IBOutlet weak var album: UILabel!
     @IBOutlet weak var author: UILabel!
     
-    private var model: AlbumEntity?
+    var model: AlbumEntity?
     
     func setWidth(_ w: CGFloat) {
         widthConstraint?.constant = w
