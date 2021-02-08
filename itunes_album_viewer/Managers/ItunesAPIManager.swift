@@ -130,26 +130,26 @@ class ItunesAPIManager {
 
 //struct with all fields from song and album json objects
 fileprivate struct ItunesEntity: Codable {
-    let wrapperType: String
+    let wrapperType: String?
     let collectionType: String?
-    let artistId : Int
-    let collectionId : Int
+    let artistId : Int?
+    let collectionId : Int?
     let amgArtistId : Int?
-    let artistName : String
-    let collectionName : String
-    let collectionCensoredName : String
-    let artistViewUrl : String
-    let collectionViewUrl : String
-    let artworkUrl60 : String
-    let artworkUrl100 : String
-    let collectionPrice : Float
-    let collectionExplicitness : String
-    let trackCount : Int
+    let artistName : String?
+    let collectionName : String?
+    let collectionCensoredName : String?
+    let artistViewUrl : String?
+    let collectionViewUrl : String?
+    let artworkUrl60 : String?
+    let artworkUrl100 : String?
+    let collectionPrice : Float?
+    let collectionExplicitness : String?
+    let trackCount : Int?
     let copyright : String?
-    let country : String
-    let currency : String
-    let releaseDate : String//"2010-09-24T07:00:00Z",
-    let primaryGenreName : String
+    let country : String?
+    let currency : String?
+    let releaseDate : String?//"2010-09-24T07:00:00Z",
+    let primaryGenreName : String?
     let kind : String?
     let trackId : Int?
     let trackName : String?
@@ -206,37 +206,37 @@ struct SongEntity: Codable {
         self.isStreamable = from.isStreamable!
     }
     
-    let wrapperType : String
-    let kind : String
-    let artistId : Int
-    let collectionId : Int
-    let trackId : Int
-    let artistName : String
-    let collectionName : String
-    let trackName : String
-    let collectionCensoredName : String
-    let trackCensoredName : String
-    let artistViewUrl : String
-    let collectionViewUrl : String
-    let trackViewUrl : String
-    let previewUrl : String
-    let artworkUrl30 : String
-    let artworkUrl60 : String
-    let artworkUrl100 : String
-    let collectionPrice : Float
-    let trackPrice : Float
-    let releaseDate : String
-    let collectionExplicitness : String
-    let trackExplicitness : String
-    let discCount : Int
-    let discNumber : Int
-    let trackCount : Int
-    let trackNumber : Int
-    let trackTimeMillis : Int
-    let country : String
-    let currency : String
-    let primaryGenreName : String
-    let isStreamable : Bool
+    let wrapperType : String?
+    let kind : String?
+    let artistId : Int?
+    let collectionId : Int?
+    let trackId : Int?
+    let artistName : String?
+    let collectionName : String?
+    let trackName : String?
+    let collectionCensoredName : String?
+    let trackCensoredName : String?
+    let artistViewUrl : String?
+    let collectionViewUrl : String?
+    let trackViewUrl : String?
+    let previewUrl : String?
+    let artworkUrl30 : String?
+    let artworkUrl60 : String?
+    let artworkUrl100 : String?
+    let collectionPrice : Float?
+    let trackPrice : Float?
+    let releaseDate : String?
+    let collectionExplicitness : String?
+    let trackExplicitness : String?
+    let discCount : Int?
+    let discNumber : Int?
+    let trackCount : Int?
+    let trackNumber : Int?
+    let trackTimeMillis : Int?
+    let country : String?
+    let currency : String?
+    let primaryGenreName : String?
+    let isStreamable : Bool?
 }
 
 struct AlbumEntity: Codable {
@@ -265,31 +265,31 @@ struct AlbumEntity: Codable {
         self.primaryGenreName = from.primaryGenreName
     }
     
-    let wrapperType: String
-    let collectionType: String
-    let artistId : Int
-    let collectionId : Int
-    let amgArtistId : Int
-    let artistName : String
-    let collectionName : String
-    let collectionCensoredName : String
-    let artistViewUrl : String
-    let collectionViewUrl : String
-    let artworkUrl60 : String
-    let artworkUrl100 : String
-    let collectionPrice : Float
-    let collectionExplicitness : String
-    let trackCount : Int
-    let copyright : String
-    let country : String
-    let currency : String
-    let releaseDate : String//"2010-09-24T07:00:00Z",
-    let primaryGenreName : String
+    let wrapperType: String?
+    let collectionType: String?
+    let artistId : Int?
+    let collectionId : Int?
+    let amgArtistId : Int?
+    let artistName : String?
+    let collectionName : String?
+    let collectionCensoredName : String?
+    let artistViewUrl : String?
+    let collectionViewUrl : String?
+    let artworkUrl60 : String?
+    let artworkUrl100 : String?
+    let collectionPrice : Float?
+    let collectionExplicitness : String?
+    let trackCount : Int?
+    let copyright : String?
+    let country : String?
+    let currency : String?
+    let releaseDate : String?//"2010-09-24T07:00:00Z",
+    let primaryGenreName : String?
 }
 
 extension AlbumEntity : Comparable, Equatable {
     static func < (lhs: AlbumEntity, rhs: AlbumEntity) -> Bool {
-        return lhs.collectionName.lowercased() < rhs.collectionName.lowercased()
+        return lhs.collectionName?.lowercased() ?? "" < rhs.collectionName?.lowercased() ?? ""
     }
 }
 
