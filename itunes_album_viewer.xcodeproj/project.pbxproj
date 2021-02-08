@@ -30,6 +30,7 @@
 		72925D8625D0B0C1008DD2DA /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72925D8525D0B0C1008DD2DA /* UIViewExtensions.swift */; };
 		72925D8725D0B0C1008DD2DA /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72925D8525D0B0C1008DD2DA /* UIViewExtensions.swift */; };
 		72925D8825D0B0C1008DD2DA /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72925D8525D0B0C1008DD2DA /* UIViewExtensions.swift */; };
+		72EB32BD25D0DE1700329351 /* NotScrollableAutoexpandableTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72EB32BC25D0DE1700329351 /* NotScrollableAutoexpandableTableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		72925D7E25CF9B9D008DD2DA /* SearchHistoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryManager.swift; sourceTree = "<group>"; };
 		72925D8125D07679008DD2DA /* AsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
 		72925D8525D0B0C1008DD2DA /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+		72EB32BC25D0DE1700329351 /* NotScrollableAutoexpandableTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotScrollableAutoexpandableTableView.swift; sourceTree = "<group>"; };
 		7B2FE28C2E52F819EC40FA73 /* Pods_itunes_album_viewer_itunes_album_viewerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_itunes_album_viewer_itunes_album_viewerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5FCDEBB815499376BA35F97 /* Pods-itunes_album_viewer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-itunes_album_viewer.debug.xcconfig"; path = "Target Support Files/Pods-itunes_album_viewer/Pods-itunes_album_viewer.debug.xcconfig"; sourceTree = "<group>"; };
 		C3F84D41DD54C816BDFAEFCE /* Pods-itunes_album_viewerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-itunes_album_viewerTests.debug.xcconfig"; path = "Target Support Files/Pods-itunes_album_viewerTests/Pods-itunes_album_viewerTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 				72925D7825CED775008DD2DA /* AlbumFullInfoViewController.swift */,
 				72925D8125D07679008DD2DA /* AsyncImageView.swift */,
 				72925D8525D0B0C1008DD2DA /* UIViewExtensions.swift */,
+				72EB32BC25D0DE1700329351 /* NotScrollableAutoexpandableTableView.swift */,
 			);
 			path = itunes_album_viewer;
 			sourceTree = "<group>";
@@ -442,6 +445,7 @@
 				72925D4325CB15BE008DD2DA /* AppDelegate.swift in Sources */,
 				72925D7525CED732008DD2DA /* SearchHistoryViewController.swift in Sources */,
 				72925D7925CED776008DD2DA /* AlbumFullInfoViewController.swift in Sources */,
+				72EB32BD25D0DE1700329351 /* NotScrollableAutoexpandableTableView.swift in Sources */,
 				72925D8225D07679008DD2DA /* AsyncImageView.swift in Sources */,
 				72925D7725CED753008DD2DA /* SearchViewController.swift in Sources */,
 				72925D7C25CED8DF008DD2DA /* ItunesAPIManager.swift in Sources */,
