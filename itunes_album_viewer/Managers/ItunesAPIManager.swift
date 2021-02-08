@@ -53,7 +53,7 @@ class ItunesAPIManager {
                 // In response.result first element is album info and all other elements are songs
                 
                 guard
-                    response.resultsCount > 1, //album info plus one or more songs
+                    response.results.count > 1, //album info plus one or more songs
                     let albumInfo = AlbumEntity(from: response.results[0])
                 else {onFailure(); return}
                 
@@ -244,10 +244,10 @@ struct AlbumEntity: Codable {
     fileprivate init?(from: ItunesEntity) {
         guard from.wrapperType == "collection" else {return nil}
         self.wrapperType = from.wrapperType
-        self.collectionType = from.collectionType!
+        self.collectionType = from.collectionType
         self.artistId = from.artistId
         self.collectionId = from.collectionId
-        self.amgArtistId = from.amgArtistId!
+        self.amgArtistId = from.amgArtistId
         self.artistName = from.artistName
         self.collectionName = from.collectionName
         self.collectionCensoredName = from.collectionCensoredName
@@ -258,7 +258,7 @@ struct AlbumEntity: Codable {
         self.collectionPrice = from.collectionPrice
         self.collectionExplicitness = from.collectionExplicitness
         self.trackCount = from.trackCount
-        self.copyright = from.copyright!
+        self.copyright = from.copyright
         self.country = from.country
         self.currency = from.currency
         self.releaseDate = from.releaseDate
@@ -295,14 +295,14 @@ extension AlbumEntity : Comparable, Equatable {
 
 //root struct for albums search
 struct AlbumSearchResponse: Codable {
-    let resultCount: Int
+    let resultCount: Int?
     let results: [AlbumEntity]
 }
 
 
 //root struct for songs in album
 fileprivate struct AlbumDetailesResponse: Codable {
-    let resultsCount: Int
+    let resultsCount: Int?
     let results: [ItunesEntity]
 }
 
