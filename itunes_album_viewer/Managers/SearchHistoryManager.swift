@@ -16,6 +16,7 @@ class SearchHistoryManager {
        
     private let idColumn               = Expression<Int64>("id")
     private let searchRequestColumn    = Expression<String>("file_path")
+    private let accessDate             = Expression<Int64>("access_date")
 
     private let searchHistoryTable     = Table("search_history_table")
     
@@ -37,6 +38,7 @@ class SearchHistoryManager {
             try db.run(searchHistoryTable.create(ifNotExists: true) {t in
                 t.column(idColumn, primaryKey: .autoincrement)
                 t.column(searchRequestColumn)
+                t.column(accessDate)
             })
         }
         catch {
@@ -48,7 +50,19 @@ class SearchHistoryManager {
     /// otherwise returns false
     func addRequest(_ request: String) -> Bool {
         do {
-            try db.run(searchHistoryTable.insert(searchRequestColumn <- request))
+            var existedRow: Row?
+            for row in try db.prepare(searchHistoryTable.filter(searchRequestColumn == request)) {
+                existedRow = row
+                break
+            }
+            let accessDateInUnixTime = Int64(NSDate().timeIntervalSince1970)
+            
+            if let existedRow = existedRow { //this request already added
+                try db.run(searchHistoryTable.filter(idColumn == existedRow[idColumn]).update(accessDate <- accessDateInUnixTime))
+            }
+            else { // this request added first time
+                try db.run(searchHistoryTable.insert(searchRequestColumn <- request, accessDate <- accessDateInUnixTime))
+            }
             return true
         }
         catch {
@@ -60,10 +74,10 @@ class SearchHistoryManager {
     func getSearchHistory() -> [String] {
         do {
             var history: [String] = []
-            for row in try db.prepare(searchHistoryTable) {
+            for row in try db.prepare(searchHistoryTable.select(searchRequestColumn).order(accessDate.desc)) {
                 history.append(row[searchRequestColumn])
             }
-            return history.reversed()
+            return history
         }
         catch {
             print(error)
@@ -78,6 +92,17 @@ class SearchHistoryManager {
         catch {
             print(error)
             return false
+        }
+    }
+    internal func dropHistoryTable() {
+        do {
+            try db.execute("""
+                drop table search_history_table;
+            """
+            )
+        }
+        catch {
+            print(error)
         }
     }
 }

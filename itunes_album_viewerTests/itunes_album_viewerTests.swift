@@ -15,11 +15,12 @@ class itunes_album_viewerTests: XCTestCase {
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         
+        
     }
 
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
-        _ = SearchHistoryManager.sharedInstance.clearHistoryTable()
+        SearchHistoryManager.sharedInstance.dropHistoryTable()
     }
     
     
@@ -53,14 +54,15 @@ class itunes_album_viewerTests: XCTestCase {
         let isAddingWasSucceeded =
                 manager.addRequest("sdad") &&
                 manager.addRequest("dddd") &&
-                manager.addRequest("12345")
+                manager.addRequest("12345") &&
+                manager.addRequest("sdad")
         
         if !isAddingWasSucceeded {XCTAssert(false, "adding rows to db failed")}
         
         let history = manager.getSearchHistory()
         
         let isGettingWasCorrect =
-                history[0] == "12345" &&
+                history[0] == "sdad" &&
                 history.count == 3
         
         XCTAssert(isGettingWasCorrect)
